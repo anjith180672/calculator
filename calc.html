@@ -1,0 +1,173 @@
+<html>
+    <head>
+        <title>CALCULATOR</title>
+        <style>
+		body{
+				background-image:linear-gradient(mediumspringgreen,white,darkslategrey);
+			}
+            h2 {
+                
+                position:absolute;
+                left:550px;
+                top:7px;
+				text-shadow:2px 2px  black;
+				font-size:30px;
+				color:red;
+            }
+            .main{
+                background:rgba(0,0,128,0.5);
+                border:2px solid blue;
+                height:500px;
+                width:420px;
+                position:absolute;
+                top:15%;
+                left:33%;
+				border-radius:40px;
+            }
+			#cal{
+				
+				background:white;
+				height:70px;
+				width:300px;
+				position:absolute;
+				left:15%;
+				top:5%;
+				border-radius:10px;
+			}
+			#b2{
+			
+				position:absolute;
+				left:10%;
+				top:15%;
+				margin:20px;
+				padding:10px;
+			}
+			#b3{
+			
+				position:absolute;
+				left:10%;
+				top:30%;
+				margin:20px;
+				padding:10px;
+			}
+			#b4{
+			
+				position:absolute;
+				left:10%;
+				top:45%;
+				margin:20px;
+				padding:10px;
+			}
+			#b5{
+			
+				position:absolute;
+				left:10%;
+				top:60%;
+				margin:20px;
+				padding:10px;
+			}
+			#b6{
+			
+				position:absolute;
+				left:10%;
+				top:75%;
+				margin:20px;
+				padding:10px;
+			}
+			button{
+			height:50px;
+			width:60px;
+			margin:5px;
+			border-radius:5px;
+			background:skyblue;
+			font-weight:bold;
+			
+			}
+			button:hover{
+				background:white;
+				height:53px;
+				width:63px;
+			}
+			
+        </style>
+    </head>
+    <body>
+        <h2>CALCULATOR</h2>
+        <div class="main">
+		
+            <div id="b1">
+			<input type="text" id="cal" >
+                </div>
+				
+             <div id="b2">
+			 <button type="button" value="1" id="but1" onclick="fun('1')"> 1</button>
+			 <button type="button" value="2" onclick="fun('2')"> 2</button>
+			 <button type="button" value="3" onclick="fun('3')"> 3</button>
+			 <button type="button"  value="+" onclick="fun('+')"> +</button>
+                </div>
+			<div id="b3">
+			<button type="button"  value="4" onclick="fun('4')"> 4</button>
+			 <button type="button" value="5" onclick="fun('5')"> 5</button>
+			 <button type="button" value="6" onclick="fun('6')"> 6</button>
+			 <button type="button" value="-" onclick="fun('-')"> -</button>
+                </div>
+			<div id="b4">
+			<button type="button" value="7" onclick="fun('7')"> 7</button>
+			 <button type="button" value="8" onclick="fun('8')"> 8</button>
+			 <button type="button" value="9" onclick="fun('9')"> 9</button>
+			 <button type="button"  value="*" onclick="fun('*')"> *</button>
+                </div>
+			<div id="b5">
+			<button type="button"  value="." onclick="fun('.')"> .</button>
+			 <button type="button"  value="0" onclick="fun('0')"> 0</button>
+			 <button type="button"  value="=" onclick="calc()"> =</button>
+			 <button type="button" value="/" onclick="fun('/')"> /</button>
+                </div>					
+             <div id="b6">
+			 <button type="button" id="but2"onclick="myfun()" > clear</button>
+                </div>
+                
+                
+
+
+        </div>
+	<script>	
+		  
+// This function clear all the values
+function myfun() {
+    document.getElementById("cal").value = "";
+}
+ 
+// This function display values
+function fun(v){
+			var f=document.querySelector("#cal")
+			var rgex=/^[0-9]+$|[0-9]+[+*/-][0-9]+/g
+			var reg=/^[\d]+[/][0]/
+			f.value+=v;
+			if(rgex.test(f.value) & !(reg.test(f.value))){
+					document.querySelector("#cal").style.backgroundColor="lightgreen";
+				}
+			else{
+				document.querySelector("#cal").style.backgroundColor="red"
+				}	
+			}
+ 
+// This function evaluates the expression and returns result
+function calc() {
+    var p = document.getElementById("cal").value;
+    var q = eval(p);
+    document.getElementById("cal").value = q;
+    	
+	document.getElementById("cal").style.backgroundColor="rgba(0,255,0,0.5)";
+	setInterval(error,2000);
+
+} 
+function error(){
+document.getElementById("cal").style.backgroundColor="white";
+}
+
+
+
+</script>
+    </body>
+</html>
